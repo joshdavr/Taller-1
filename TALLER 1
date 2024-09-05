@@ -1,0 +1,145 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNOkS7ml42r/IO13d5Wn5X3",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/joshdavr/Taller-1/blob/main/TALLER%201\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "0cP-TMsG32OE"
+      },
+      "outputs": [],
+      "source": [
+        "def validate_dna (dna_seq):\n",
+        "  seqm = dna_seq.upper()\n",
+        "  valid = seqm.count(\"A\") + seqm.count(\"C\") + seqm.count(\"G\") + seqm.count(\"T\") + seqm.count('X')\n",
+        "  if valid == len(seqm):\n",
+        "    return True\n",
+        "  else:\n",
+        "    return False"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "validate_dna(\"aTXagagagatctcg\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OUVA_NOh6gvd",
+        "outputId": "a1ed858e-acc9-4870-92e3-da19a9326dfc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def frequency (seq):\n",
+        "  dic = {}\n",
+        "  for s in seq.upper():\n",
+        "    if s in dic: dic[s] += 1\n",
+        "    else : dic[s] = 1\n",
+        "  return dic"
+      ],
+      "metadata": {
+        "id": "k9RyDAJ46r1n"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "frequency(\"atagataactcgcatag\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-iDMb0LR6vSG",
+        "outputId": "c3f0239d-6a87-4100-dbf8-2747baa468b3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'A': 7, 'T': 4, 'G': 3, 'C': 3}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dna= input('Secuencia ADN:')\n",
+        "freqadn=frequency(dna)\n",
+        "list_f = sorted (freqadn.items(), key=lambda x: x[1], reverse = True)\n",
+        "for (k,v) in list_f:\n",
+        "  print (\"Base nitrogenada:\", k, \":\", v)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0G9sB6Oy7D1M",
+        "outputId": "ecb30afd-a05a-48f0-d1f6-c0e3a7881dc1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Secuencia ADN:attc\n",
+            "Base nitrogenada: T : 2\n",
+            "Base nitrogenada: A : 1\n",
+            "Base nitrogenada: C : 1\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
